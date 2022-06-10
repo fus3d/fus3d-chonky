@@ -1,7 +1,7 @@
 # Fus3d Chonky
 After seeing the original Chonky Palmtop I realized I had many of the same parts on hand already and given my current interest in ergo mech keyboards it was a perfect fit.   However I had some different requirements.  A 5 row keyboard wasn't going to work so I expanded the keyboard trays and overall size to support the extra row.  The monitors I had were the RPI 7" display so the design needed to be reworked for that.  The resolution on the RPI screen is worse than the originally spec'd one but it is still useable.  I wanted to be able to use the RPI Video out to support additional monitors so I reoriented the RPI and exposed those ports.  I also wanted to use up the extra space provided on the screen bezel so I added some neopixels, a RPI camera, and a I2C screen.  Additionally the power button, multimeter and XT60 hookup have been moved to the display bezel. 
 
-
+<img src="Images/Fus3d-Chonky-F1.jpg" width="400" />
 
 
 # ---------- Original Chonky Palmtop README -------------
