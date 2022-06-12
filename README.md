@@ -13,18 +13,18 @@ screen.  Additionally the power button, multimeter and XT60 hookup have been
 moved to the display bezel. 
 
 ## Additional Requirements
-..* Ability to disconnect keyboard from RPI to use it on other systems
-..* Camera for Video Conferencing
-..* Exposed HDMI ports for external monitor connections
-..* Corne keyboard with 6 rows (instead of 5 as on the original Chonky)
-..* oled screen for keyboard
-..* pimoroni trackball for keyboard
+- Ability to disconnect keyboard from RPI to use it on other systems
+- Camera for Video Conferencing
+- Exposed HDMI ports for external monitor connections
+- Corne keyboard with 6 rows (instead of 5 as on the original Chonky)
+- oled screen for keyboard
+- pimoroni trackball for keyboard
 
 ## Todo
-..* Enable non-working components (trackball, oled, neopixels)
-..* Add clasps to the outside to keep it closed in transit
-..* Battery status on RPI
-..* speakers
+- Enable non-working components (trackball, oled, neopixels)
+- Add clasps to the outside to keep it closed in transit
+- Battery status on RPI
+- speakers
 
 <img src="Images/Fus3d-Chonky-F1.jpg" width="400" />
 
@@ -59,13 +59,15 @@ are held down with a touch of hot glue.
 <img src="Images/Fus3d-Chonky-Wiring-1.jpg" width="400" />
 
 ## OS
-The system runs Wayland Sway on a 4Gb Raspberry Pi 4.  The Sway interface which
-mirrors i3 functionality in Wayland fits very well the corne keyboard.  The
-trackball isn't working at the moment because I have rarely had need to use the
-trackball instead of keyboard driven commands and touch screen.  The 800x480
-resolution could definately be improved but it is very useable with the
-appropriate scaling / fonts.   The ability to wire in an external monitor adds
-to the functionality of it. 
+The system runs Manjaro Sway on a 4Gb Raspberry Pi 4.  The Sway interface which
+mirrors i3 functionality fits very well the corne keyboard.  The trackball
+isn't working at the moment because I have rarely had need to use the trackball
+instead of keyboard driven commands and touch screen.  The 800x480 resolution
+could definately be improved but it is very useable with the appropriate
+scaling / fonts.   The ability to wire in an external monitor adds to the
+functionality of it. 
+
+[Manjaro Sway](https://github.com/Manjaro-Sway/manjaro-sway)
 
 <img src="Images/Fus3d-Chonky-Open-Angle-1.jpg" width="400" />
 <img src="Images/Fus3d-Chonky-Open-Angle-2.jpg" width="400" />
@@ -75,7 +77,6 @@ to the functionality of it.
 <img src="Images/Fus3d-Chonky-Keyboard.jpg" width="400" />
 <img src="Images/Fus3d-Chonky-Screen-1.jpg" width="400" />
 <img src="Images/Fus3d-Chonky-Power-Plate-1.jpg" width="400" />
-
 
 # Sections from the Original Chonky Palmtop README 
 
