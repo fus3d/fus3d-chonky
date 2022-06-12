@@ -1,100 +1,122 @@
 # Fus3d Chonky
-After seeing the original Chonky Palmtop I realized I had many of the same parts on hand already and given my current interest in ergo mech keyboards it was a perfect fit.   However I had some different requirements.  A 5 row keyboard wasn't going to work so I expanded the keyboard trays and overall size to support the extra row.  The monitors I had were the RPI 7" display so the design needed to be reworked for that.  The resolution on the RPI screen is worse than the originally spec'd one but it is still useable.  I wanted to be able to use the RPI Video out to support additional monitors so I reoriented the RPI and exposed those ports.  I also wanted to use up the extra space provided on the screen bezel so I added some neopixels, a RPI camera, and a I2C screen.  Additionally the power button, multimeter and XT60 hookup have been moved to the display bezel. 
+fter seeing the original Chonky Palmtop I realized I had many of the same parts
+on hand already and given my current interest in ergo mech keyboards it was a
+perfect fit.   However I had some different requirements.  A 5 row keyboard
+wasn't going to work so I expanded the keyboard trays and overall size to
+support the extra row.  The monitors I had were the RPI 7" display so the
+design needed to be reworked for that.  The resolution on the RPI screen is
+worse than the originally spec'd one but it is still useable.  I wanted to be
+able to use the RPI Video out to support additional monitors so I reoriented
+the RPI and exposed those ports.  I also wanted to use up the extra space
+provided on the screen bezel so I added some neopixels, a RPI camera, and a I2C
+screen.  Additionally the power button, multimeter and XT60 hookup have been
+moved to the display bezel. 
+
+## Additional Requirements
+..* Ability to disconnect keyboard from RPI to use it on other systems
+..* Camera for Video Conferencing
+..* Exposed HDMI ports for external monitor connections
+..* Corne keyboard with 6 rows (instead of 5 as on the original Chonky)
+..* oled screen for keyboard
+..* pimoroni trackball for keyboard
+
+## Todo
+..* Enable non-working components (trackball, oled, neopixels)
+..* Add clasps to the outside to keep it closed in transit
+..* Battery status on RPI
+..* speakers
 
 <img src="Images/Fus3d-Chonky-F1.jpg" width="400" />
 
+## Design
+Thanks to a8ksh4 for making the onshape links available.  Using them, I was
+able to modify the parts for my needs.   Other than the hinges and keyboard
+slider parts everything has been adjusted for the 6 row keyboard size.   The
+display bezel and components have almost all been remade from scratch to
+accomodate for the different screen and added components.  
 
-# ---------- Original Chonky Palmtop README -------------
+This version still has a multimeter connected to the LS pin of the Ampripper
+3000.   This should give "battery voltage when discharging and system voltage
+when charging"
+
+[Onshape Models](https://cad.onshape.com/documents/b660fb934f42fd645deb3fbe/w/3176a45797060d52070b3125/e/4b153ee5366d2e144ed84390 "Onshape Models")
+
+<img src="Images/Fus3d-Chonky-F1.jpg" width="400" />
+
+## Wiring
+Most of the wiring follows the original design.  I have mounted a USB hub but
+it's not wired in at the moment.  The XT60 has been moved to the front display
+to allow the battery to be completely disconnected from the electroncis and
+facilitate using the keyboard without the raspberry pi.   
+
+Each of the screen components is wired with JST SM connectors so they can be
+removed or adjusted.   The raspberry pi connections are also terminated in this
+way.
+
+Two level release connectors serve as the power and ground distribution.  These
+are held down with a touch of hot glue.
+
+<img src="Images/Fus3d-Chonky-Wiring-1.jpg" width="400" />
+
+## OS
+The system runs Wayland Sway on a 4Gb Raspberry Pi 4.  The Sway interface which
+mirrors i3 functionality in Wayland fits very well the corne keyboard.  The
+trackball isn't working at the moment because I have rarely had need to use the
+trackball instead of keyboard driven commands and touch screen.  The 800x480
+resolution could definately be improved but it is very useable with the
+appropriate scaling / fonts.   The ability to wire in an external monitor adds
+to the functionality of it. 
+
+<img src="Images/Fus3d-Chonky-Open-Angle-1.jpg" width="400" />
+<img src="Images/Fus3d-Chonky-Open-Angle-2.jpg" width="400" />
+<img src="Images/Fus3d-Chonky-Open-Angle-3.jpg" width="400" />
+<img src="Images/Fus3d-Chonky-Closed-1.jpg" width="400" />
+<img src="Images/Fus3d-Chonky-Closed-2.jpg" width="400" />
+<img src="Images/Fus3d-Chonky-Keyboard.jpg" width="400" />
+<img src="Images/Fus3d-Chonky-Screen-1.jpg" width="400" />
+<img src="Images/Fus3d-Chonky-Power-Plate-1.jpg" width="400" />
 
 
-# Chonky Palmtop
-It struck me to put this together when I saw how close in size the 7" touchscreen, battery cells, and crkbd folded vertically that I had sitting on my desk were.  And I I needed a build that was actually functional for normal computer stuff, so this seemed like a good idea.
-
-It turns out that this is a pretty functional setup.  The 7" display is okay as long as I fullscreen stuff.  Alt+F11 works with a lot of stuff so far.  I've been able to use onshape cad in firefox.  It's a little slow, but works as long as firefox doesn't have issues with gfx acceleration.  Console stuff and web browsing are  great!
-
-<img src="Images/finished01.jpg" width="400" />
-<img src="Images/finished02.jpg" width="400" />
-<img src="Images/finished03.jpg" width="400" />
-<img src="Images/finished04.jpg" width="400" />
-<img src="Images/finished05.jpg" width="400" />
-<img src="Images/finished06.jpg" width="400" />
-<img src="Images/wiring01.jpg" width="400" />
-
-
-## Status
-The current to-do list:
-* Figure out why gfx acceleration is broken for firefox!
-* Look into voltage warning wirining to gpio for the psu... not super useful since I don't have a way to actually switch the psu off.
-* Rework the lower left hinge bracket with integrated wire protection to match the lid.
-* Integrated pwnagotchi with power controls via gpio.  Sort of a separate project...  
-
-## Keyboard
-The keyboard is a Corne Classic with Miryoku Firmware.  It has mouse emulation that works surprisingly well when not using a usb mouse.  
-
-### Firmware
-Using the Miryoku Firmware found here: https://github.com/manna-harbour/miryoku   
-
-<img src="Images/miryoku-kle-cover.png"/>
-
+# Sections from the Original Chonky Palmtop README 
 
 ### Pivot Geometry
-One corner of each keyboard half moves up the center of the chassis on a straight path.  The other povot point follows some other path to acheive the desired total rotation, and we have some control over how it gets there by curving the path it follows.
+One corner of each keyboard half moves up the center of the chassis on a
+straight path.  The other povot point follows some other path to acheive the
+desired total rotation, and we have some control over how it gets there by
+curving the path it follows.
 
-We can figure out the starting and ending points of the second pivot by projecting it's location in the closed and open positions, and then drawing a path between them.  See the yellow lines in the cad sketch below.  We use a path that first curves down to help us dip the keyboard around the hinges that hold the display.  
+We can figure out the starting and ending points of the second pivot by
+projecting it's location in the closed and open positions, and then drawing a
+path between them.  See the yellow lines in the cad sketch below.  We use a
+path that first curves down to help us dip the keyboard around the hinges that
+hold the display.  
 
 <img src="Images/kb-flip-projection.png" width="400" />
 
-First draft of the sliders:  
-
-<img src="Images/keyboard11.jpg" width="100" /><img src="Images/keyboard12.jpg" width="400" />
-
 ## Power System
-The PSU/Charge controller is an Amp Ripper 3k, which seems to work well satisfying the Pi 4 and display without low voltage warnings.  It can be wired so an external switch, and has a signal pin to indicate low, but doesn't seem to actually be able to disconnect your system from the battery if voltage gets too low, so you should include some additional low voltage protection.  It charges at up to 3a via USB-c port:  
+The PSU/Charge controller is an Amp Ripper 3k, which seems to work well
+satisfying the Pi 4 and display without low voltage warnings.  It can be wired
+so an external switch, and has a signal pin to indicate low, but doesn't seem
+to actually be able to disconnect your system from the battery if voltage gets
+too low, so you should include some additional low voltage protection.  It
+charges at up to 3a via USB-c port:  
 
 <img src="Images/charge_port.jpg" width="400" />
 
-This build has two li-ion pouch cells wired in parallel, each separatly fused for 10a for short curcuit protection.  There's an XT60 connection on the side in case I want to rig up a fast-charge.  The li-on cells used here aren't the best choice for energy density, but they can fast charge  - limited only by the gauge of the wire I connect tehm with, and if I change them later, there's room in the battery box for a bunch of 18650 cells instead.  
+This build has two li-ion pouch cells wired in parallel, each separatly fused
+for 10a for short curcuit protection.  There's an XT60 connection on the side
+    in case I want to rig up a fast-charge.  The li-on cells used here aren't
+    the best choice for energy density, but they can fast charge  - limited
+    only by the gauge of the wire I connect tehm with, and if I change them
+    later, there's room in the battery box for a bunch of 18650 cells instead.  
 
 <img src="Images/battery02.jpg" width="400" />
 <img src="Images/battery00.jpg" width="400" />
 <img src="Images/battery03.jpg" width="400" />
 
-There is a switch and a voltage button on the right side of the screen to turn it on and check the battery level:  
-
-<img src="Images/disp_buttons02.jpg" width="400" />
-
-## USB Wiring
-There is a usb hub inside the lid that'r wired with ground, D+, D-, directly to the usb pins on one of the pi ports.  Posotive power comes directly from the psu.  The ground and data wires are bundled with heat shrink to keep them paralle and close so they have the correct impedance for the usb connection.  I tried with them loose and the connection didn't work.  
-
-<img src="Images/usb01.jpg" width="100" />
-
-Before I added a ground wire and bundled them:  
-
-<img src="Images/usb02.jpg" width="100" />  
-
-And another similar build:  
-
-<img src="Images/usb03.jpg" width="100" />
-
-
-## Chassis Details
-Wiring for the front facing ouchscreen controls:  
-
-<img src="Images/disp_buttons01.jpg" width="400" />
-
 Display Keeps the keyboard closed when folded:
 
 <img src="Images/lid_keyboard_corner.jpg" width="400" />
-
-Hinges and stuff:  
-
-<img src="Images/hinge1.jpg" width="100" />
-<img src="Images/hinge2.jpg" width="100" />
-<img src="Images/hinge3.jpg" width="100" />
-<img src="Images/battery-box0.jpg" width="100" />
-<img src="Images/wiring-20220209.jpg" width="100" />
-<img src="Images/first-boot.jpg" width="100" />
-<img src="Images/side-closed.jpg" width="100" />
 
 ## Materials List
 * Printed parts - See the "Stl Files" derectory.
@@ -122,9 +144,6 @@ Hinges and stuff:
 * 6mm Tactile Buttons:  https://www.adafruit.com/product/367
 * 6mm Clear Top Buttons: https://www.adafruit.com/product/4183
 * Switch: https://www.amazon.com/gp/product/B008CZIG3I/
-
-## Authors and acknowledgment
-Thanks to the Cyberdeck Cafe Discord and the Cyberdeck Reddit for loads of inrpiration and collaboration!
 
 ## License
 Creative Commons Share Alike
