@@ -1,16 +1,16 @@
 # Fus3d Chonky
-fter seeing the original Chonky Palmtop I realized I had many of the same parts
+After seeing the original Chonky Palmtop I realized I had many of the same parts
 on hand already and given my current interest in ergo mech keyboards it was a
 perfect fit.   However I had some different requirements.  A 5 row keyboard
-wasn't going to work so I expanded the keyboard trays and overall size to
-support the extra row.  The monitors I had were the RPI 7" display so the
+wasn't going to work for me so I expanded the keyboard trays and overall size
+to support the extra row.  The monitors I had were the RPI 7" display so the
 design needed to be reworked for that.  The resolution on the RPI screen is
 worse than the originally spec'd one but it is still useable.  I wanted to be
 able to use the RPI Video out to support additional monitors so I reoriented
 the RPI and exposed those ports.  I also wanted to use up the extra space
 provided on the screen bezel so I added some neopixels, a RPI camera, and a I2C
 screen.  Additionally the power button, multimeter and XT60 hookup have been
-moved to the display bezel. 
+adjusted for space.
 
 ## Additional Requirements
 - Ability to disconnect keyboard from RPI to use it on other systems
@@ -21,10 +21,13 @@ moved to the display bezel.
 - pimoroni trackball for keyboard
 
 ## Todo
-- Enable non-working components (trackball, oled, neopixels)
+- Enable non-working components (trackball, oled)
 - Add clasps to the outside to keep it closed in transit
 - Battery status on RPI
-- speakers
+- Speakers
+- Keyboard LEDs (I avoided this at first due to some power concerns I had but I
+  think I'd rather have it, at least a general backlight if not full RGB per
+  key)
 
 <img src="Images/Fus3d-Chonky-F1.jpg" width="400" />
 
@@ -37,7 +40,10 @@ accomodate for the different screen and added components.
 
 This version still has a multimeter connected to the LS pin of the Ampripper
 3000.   This should give "battery voltage when discharging and system voltage
-when charging"
+when charging".  I put the multimeter on a momentary button so that I can check
+status periodically without having it in my face the whole time.  Also the LS
+pin of the ampripper is always on so the multimeter wouldn't turn off when the
+EN pin is disconnected.
 
 [Onshape Models](https://cad.onshape.com/documents/b660fb934f42fd645deb3fbe/w/3176a45797060d52070b3125/e/4b153ee5366d2e144ed84390 "Onshape Models")
 
@@ -45,15 +51,17 @@ when charging"
 
 ## Wiring
 Most of the wiring follows the original design.  I have mounted a USB hub but
-it's not wired in at the moment.  The XT60 has been moved to the front display
-to allow the battery to be completely disconnected from the electroncis and
-facilitate using the keyboard without the raspberry pi.   
+it's not wired in at the moment (I don't trust myself to solder to USB on the
+PI to be honest, I just have bad luck with those sorts of connections).  The
+XT60 has been moved to the front display to allow the battery to be completely
+disconnected from the electronics and facilitate using the keyboard without the
+raspberry pi.   
 
 Each of the screen components is wired with JST SM connectors so they can be
 removed or adjusted.   The raspberry pi connections are also terminated in this
 way.
 
-Two level release connectors serve as the power and ground distribution.  These
+Two lever release connectors serve as the power and ground distribution.  These
 are held down with a touch of hot glue.
 
 <img src="Images/Fus3d-Chonky-Wiring-1.jpg" width="400" />
@@ -69,6 +77,30 @@ functionality of it.
 
 [Manjaro Sway](https://github.com/Manjaro-Sway/manjaro-sway)
 
+### Fonts / Scaling
+Capturing some of the scaling settings I'm using to make the system useable:
+
+#### /etc/sway/outputs/default-screen
+''' output DSI-1 scale .8 '''
+
+#### /etc/sway/themes/matcha-green/foot.ini
+''' font=TerminessTTF Nerd Font Mono:pixelsize=18:fontfeatures=ss01 '''
+
+#### /etc/sway/themes/matcha-green/definitions (not sure these are being used)
+'''
+set $gui-font Noto Sans 11
+set $term-font TerminessTTF Nerd Font Mono 14
+'''
+
+#### ~/.config/waybar/style.css
+'''
+* {
+...
+font-family: "FontAwesome 5 Free Solid", "TerminessTTF Nerd Font", sans-serif;
+font-size: 14px;
+...
+}
+
 <img src="Images/Fus3d-Chonky-Open-Angle-1.jpg" width="400" />
 <img src="Images/Fus3d-Chonky-Open-Angle-2.jpg" width="400" />
 <img src="Images/Fus3d-Chonky-Open-Angle-3.jpg" width="400" />
@@ -82,7 +114,7 @@ functionality of it.
 
 ### Pivot Geometry
 One corner of each keyboard half moves up the center of the chassis on a
-straight path.  The other povot point follows some other path to acheive the
+straight path.  The other pivot point follows some other path to acheive the
 desired total rotation, and we have some control over how it gets there by
 curving the path it follows.
 
