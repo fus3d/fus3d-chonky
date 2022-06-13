@@ -81,25 +81,30 @@ functionality of it.
 Capturing some of the scaling settings I'm using to make the system useable:
 
 #### /etc/sway/outputs/default-screen
-''' output DSI-1 scale .8 '''
+``` 
+output DSI-1 scale .8 
+```
 
 #### /etc/sway/themes/matcha-green/foot.ini
-''' font=TerminessTTF Nerd Font Mono:pixelsize=18:fontfeatures=ss01 '''
+``` 
+font=TerminessTTF Nerd Font Mono:pixelsize=18:fontfeatures=ss01 
+```
 
 #### /etc/sway/themes/matcha-green/definitions (not sure these are being used)
-'''
+```
 set $gui-font Noto Sans 11
 set $term-font TerminessTTF Nerd Font Mono 14
-'''
+```
 
 #### ~/.config/waybar/style.css
-'''
+```
 * {
 ...
 font-family: "FontAwesome 5 Free Solid", "TerminessTTF Nerd Font", sans-serif;
 font-size: 14px;
 ...
 }
+```
 
 <img src="Images/Fus3d-Chonky-Open-Angle-1.jpg" width="400" />
 <img src="Images/Fus3d-Chonky-Open-Angle-2.jpg" width="400" />
