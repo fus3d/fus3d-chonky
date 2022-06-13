@@ -21,13 +21,14 @@ adjusted for space.
 - pimoroni trackball for keyboard
 
 ## Todo
-- Enable non-working components (trackball, oled)
-- Add clasps to the outside to keep it closed in transit
-- Battery status on RPI
-- Speakers
-- Keyboard LEDs (I avoided this at first due to some power concerns I had but I
+- [ ] Enable non-working components (trackball, oled)
+- [ ] Add clasps to the outside to keep it closed in transit
+- [ ] Battery status on RPI
+- [ ] Speakers
+- [ ] Keyboard LEDs (I avoided this at first due to some power concerns I had but I
   think I'd rather have it, at least a general backlight if not full RGB per
   key)
+- [ ] Expand on keymaps
 
 <img src="Images/Fus3d-Chonky-F1.jpg" width="400" />
 
@@ -66,6 +67,11 @@ are held down with a touch of hot glue.
 
 <img src="Images/Fus3d-Chonky-Wiring-1.jpg" width="400" />
 
+## Keyboard I'm using a more conventional QWERTY layout keyboard with
+customizations for tmux and nvim as desired.  My main keyboard is a dactyl
+manuform so many of the keymappings will be taken from that.  Keymaps are
+uploaded but are currently incomplete.
+
 ## OS
 The system runs Manjaro Sway on a 4Gb Raspberry Pi 4.  The Sway interface which
 mirrors i3 functionality fits very well the corne keyboard.  The trackball
@@ -73,9 +79,25 @@ isn't working at the moment because I have rarely had need to use the trackball
 instead of keyboard driven commands and touch screen.  The 800x480 resolution
 could definately be improved but it is very useable with the appropriate
 scaling / fonts.   The ability to wire in an external monitor adds to the
-functionality of it. 
+functionality of it.
 
 [Manjaro Sway](https://github.com/Manjaro-Sway/manjaro-sway)
+
+### git command line status
+One great feature on linux CLI is the ability to display git status information
+on the command line.  However, on a Raspberry PI this ends up being a fairly
+resource intensive operation everytime you change into a directory that is part
+of a git repository.  To make the system a bit quicker I've opted to disable
+this on the Pi.  In Manjaro you do this by commenting out the following lines
+from the ~/.config/silver/silver.toml file.
+
+~/.config/silver/silver.toml
+```
+# [[left]]
+# name = "git"
+# color.background = "green"
+# color.foreground = "black"
+```
 
 ### Fonts / Scaling
 Capturing some of the scaling settings I'm using to make the system useable:
@@ -105,6 +127,8 @@ font-size: 14px;
 ...
 }
 ```
+
+## Pictures!
 
 <img src="Images/Fus3d-Chonky-Open-Angle-1.jpg" width="400" />
 <img src="Images/Fus3d-Chonky-Open-Angle-2.jpg" width="400" />
