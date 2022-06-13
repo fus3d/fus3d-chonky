@@ -1,4 +1,7 @@
 # Fus3d Chonky
+
+<img src="Images/Fus3d-Chonky-F1.jpg" width="400" />
+
 After seeing the original Chonky Palmtop I realized I had many of the same parts
 on hand already and given my current interest in ergo mech keyboards it was a
 perfect fit.   However I had some different requirements.  A 5 row keyboard
@@ -29,8 +32,6 @@ adjusted for space.
   think I'd rather have it, at least a general backlight if not full RGB per
   key)
 - [ ] Expand on keymaps
-
-<img src="Images/Fus3d-Chonky-F1.jpg" width="400" />
 
 ## Design
 Thanks to a8ksh4 for making the onshape links available.  Using them, I was
@@ -67,10 +68,18 @@ are held down with a touch of hot glue.
 
 <img src="Images/Fus3d-Chonky-Wiring-1.jpg" width="400" />
 
-## Keyboard I'm using a more conventional QWERTY layout keyboard with
+## Keyboard 
+I'm using a more conventional QWERTY layout keyboard with
 customizations for tmux and nvim as desired.  My main keyboard is a dactyl
 manuform so many of the keymappings will be taken from that.  Keymaps are
 uploaded but are currently incomplete.
+
+The left side of the keyboard uses an Elite-C while the right side uses a
+pro-micro.  This is mostly just because I didn't want to use 2 Elite-Cs on one
+keyboard.  So far there are no problems with it this way.  When updating QMK I
+need to make sure to image both sides, one with DFU and the other with avrdude.
+qmk flash works for both though so it's not a big deal.  In between versions
+update just the left side, everything is done locally on the Chonky.
 
 ## OS
 The system runs Manjaro Sway on a 4Gb Raspberry Pi 4.  The Sway interface which
