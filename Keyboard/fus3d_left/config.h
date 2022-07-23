@@ -21,16 +21,32 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #pragma once
 
 //#define USE_MATRIX_I2C
-#define SERIAL
+#define USE_I2C
+//#define SERIAL
 
 /* Select hand configuration */
 
-#define MASTER_LEFT
+//#define MASTER_LEFT
 //#define MASTER_RIGHT
-// #define EE_HANDS
+#define EE_HANDS
 //
 #define SPLIT_USB_DETECT
 #define SPLIT_USB_TIMEOUT 2000
+
+#define TAPPING_TOGGLE 2
+
+#define NO_ACTION_MACRO
+#define NO_ACTION_FUNCTION
+
+#ifndef NO_DEBUG
+#define NO_DEBUG
+#endif // !NO_DEBUG
+#if !defined(NO_PRINT) && !defined(CONSOLE_ENABLE)
+#define NO_PRINT
+#endif // !NO_PRINT
+
+#define TAPPING_TERM 300
+
 
 //#define TAPPING_FORCE_HOLD
 //#define TAPPING_TERM 100

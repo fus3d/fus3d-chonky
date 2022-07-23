@@ -21,13 +21,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #pragma once
 
 //#define USE_MATRIX_I2C
-#define SERIAL
+#define USE_I2C 
+//#define SERIAL
 
 /* Select hand configuration */
 
-#define MASTER_LEFT
-// #define MASTER_RIGHT
-// #define EE_HANDS
+// #define MASTER_LEFT
+//#define MASTER_RIGHT
+#define EE_HANDS
 //
 #define SPLIT_USB_DETECT
 #define SPLIT_USB_TIMEOUT 2000
